@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+    font-family: "HGP創英角ﾎﾟｯﾌﾟ体";
+    text-align: center;
+    text-decoration: none;
+	background-image: url('haikei1.jpg'); /* 例: 森の背景画像 */
+    background-size: cover; /* 画面全体をカバー */
+    background-position: center; /* 画像を中央に配置 */
+    margin: 0; /* ページの余白をなくす */
+    height: 100vh; /* ビューポートの高さを100%にする */
+}
+
+button {
+    font-size: 30px; /* ボタンの文字を大きく */
+    padding: 20px 40px; /* ボタンのサイズを大きく */
+    background-color: #FFED00; /* ボタンの色 */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.1); /* ボタンが少し大きくなるエフェクト */
+}
+
+h1{
+    margin-top: 40px; /* 文字を下に移動させる */
+    font-size: 50px;
+    color: #FF000F;
+}
+
+p{
+    margin-top: 40px; /* 文字を下に移動させる */
+    font-size: 30px;
+    color: #FFED00;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+	justify-content: center;
+    margin-top: 20px;
+}
+
+#score-page {
+    background-image: url('haikei1.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0; /* ページの余白をなくす */
+    height: 100vh; /* ビューポートの高さを100%にする */
+	display: flex;
+    flex-direction: column;
+    justify-content: center; /* 縦方向に中央寄せ */
+    align-items: center; /* 横方向に中央寄せ */
+}
+
+.hole {
+    width: 100px;
+    height: 100px;
+    background-color: #EEBF9E; /* 穴の色 */
+    border-radius: 50%; /* 穴を丸くする */
+    position: relative;
+    cursor: pointer;
+    overflow: hidden; /* 画像がはみ出ないように */
+}
+
+.hole:hover{
+	transform: scale(1.05);
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+}
+
+.hole img {
+    display: none; /* 初期状態で非表示 */
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hole.active img {
+    display: block; /* アクティブな状態でモグラ画像を表示 */
+}
+
+/* スコアエフェクトのスタイル */
+.score-effect {
+    position: absolute;
+    color: blue;
+    font-size: 50px;
+    font-weight: bold;
+    animation: scoreEffectAnim 1s ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes scoreEffectAnim {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}
